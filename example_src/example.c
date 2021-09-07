@@ -38,12 +38,12 @@ int main(int argc, char *argv[])
 
     // Draw all stations
     for (int i = 0; i < stations.num_stations; i++) {
-        draw_point_by_lat_lon(&map, stations.stations[i].lat, stations.stations[i].lon, 255, 0, 0);
+        draw_point_by_lat_lon(&map, stations.stations[i].lat, stations.stations[i].lon, 0, 0, 255);
     }
 
     // Nearest station search
     station_t nearest_station = get_nearest_station(&stations, user_lat, user_lon);
-    draw_point_by_lat_lon(&map, nearest_station.lat, nearest_station.lon, 255, 200, 0);
+    draw_point_by_lat_lon(&map, nearest_station.lat, nearest_station.lon, 255, 0, 0);
     printf("The nearest station: %s (lat: %4f, lon: %.4f)\n", nearest_station.name, nearest_station.lat, nearest_station.lon);
     printf("Distance to the station: %.2f km\n", get_distance_in_km(nearest_station.lat, nearest_station.lon, user_lat, user_lon));
 

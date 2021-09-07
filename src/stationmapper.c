@@ -80,7 +80,7 @@ void draw_point_by_lat_lon(peace_of_map_t * map, float lat, float lon, int r, in
             if ((x + i < 0) || (x + i >= map->width) || (y + j < 0) || (y + j > map->height)) {
                 continue;
             }
-            add_pixel(map->image, map->width, x + i, y + j, r, g, b, 32);
+            draw_pixel(map->image, map->width, x + i, y + j, r, g, b, 32);
         }
     }
 }
@@ -111,7 +111,7 @@ stations_list_t load_stations(const char * stations_list_filename) {
         char line[256];
         fgets(line, 256, fp);
     
-        sscanf(line, "%d,%[^'',],%f,%f", &stations_list.stations[i].id,
+        sscanf(line, "%d,%[^'',],%12f,%12f", &stations_list.stations[i].id,
                                     stations_list.stations[i].name,
                                     &stations_list.stations[i].lat,
                                     &stations_list.stations[i].lon);
