@@ -111,7 +111,7 @@ stations_list_t load_stations(const char * stations_list_filename) {
         char line[256];
         fgets(line, 256, fp);
     
-        sscanf(line, "%d,%[^'',],%12f,%12f", &stations_list.stations[i].id,
+        sscanf(line, "%d,%[^''\t,],%12f,%12f", &stations_list.stations[i].id,
                                     stations_list.stations[i].name,
                                     &stations_list.stations[i].lat,
                                     &stations_list.stations[i].lon);
